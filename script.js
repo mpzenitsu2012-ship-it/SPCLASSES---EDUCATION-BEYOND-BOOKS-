@@ -7,10 +7,6 @@
 
 window.addEventListener("load", () => {
 
-    setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
-    }, 1900);
-
 });
 
 
