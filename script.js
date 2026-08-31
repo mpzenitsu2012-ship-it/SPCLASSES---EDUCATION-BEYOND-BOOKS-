@@ -530,3 +530,7 @@ window.addEventListener(
         overflow-x: hidden !important;
     }
 }
+/* FIX LOADER */
+#loader {
+    display: none !important;
+}
