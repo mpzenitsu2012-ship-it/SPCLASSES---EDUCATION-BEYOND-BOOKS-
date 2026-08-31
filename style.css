@@ -1298,6 +1298,63 @@ footer {
 }
 
 .teacher-contact a:hover {
+   /* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container,
+    .hero,
+    .section,
+    .about,
+    .teachers,
+    .courses {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+    }
+
+    .nav {
+        padding: 15px 20px;
+    }
+
+    .hero {
+        padding: 70px 20px 50px;
+    }
+
+    .teachers,
+    .courses {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-card,
+    .course-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    img,
+    video,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
     color: white;
     border-color: #8f68e6;
     transform: translateY(-3px);
