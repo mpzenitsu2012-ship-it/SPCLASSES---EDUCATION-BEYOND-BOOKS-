@@ -450,3 +450,83 @@ window.addEventListener(
     },
     { passive: true }
 );
+/* ===== FINAL MOBILE POSITION FIX ===== */
+
+@media (max-width: 600px) {
+
+    .hero {
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .hero-title {
+        width: 100% !important;
+        font-size: clamp(48px, 16vw, 78px) !important;
+        letter-spacing: -4px !important;
+    }
+
+    .hero-visual {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: 470px !important;
+        overflow: visible !important;
+    }
+
+    /* MAIN 3D CARD */
+    .card-main {
+        width: 82vw !important;
+        max-width: 300px !important;
+        height: 390px !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        /* horizontal centering without relying on animation */
+        margin-left: -41vw !important;
+
+        top: 30px !important;
+
+        animation: mobileCardFloat 5s ease-in-out infinite !important;
+    }
+
+    @keyframes mobileCardFloat {
+        0%, 100% {
+            transform: translateY(0) !important;
+        }
+
+        50% {
+            transform: translateY(-15px) !important;
+        }
+    }
+
+    /* SMALL CARD */
+    .card-small {
+        width: 120px !important;
+        right: 2vw !important;
+        bottom: 15px !important;
+    }
+
+    .hero-buttons {
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+    }
+
+    .hero-stats {
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+    }
+
+    /* PREVENT HORIZONTAL PAGE MOVEMENT */
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
