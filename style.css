@@ -1,5 +1,6 @@
 /* =====================================================
    SPCLASSES — PREMIUM 3D EDUCATION WEBSITE
+   COMPLETE RESPONSIVE CSS
    ===================================================== */
 
 * {
@@ -10,9 +11,12 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
     background: #050507;
     color: #f5f5f5;
     font-family: "Inter", sans-serif;
@@ -26,6 +30,11 @@ a {
 
 button {
     font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
@@ -57,6 +66,7 @@ button {
 .loader-logo span {
     background: linear-gradient(135deg, #8c52ff, #d8b4fe);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -116,7 +126,11 @@ button {
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(circle, rgba(139, 92, 246, .13), transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, .13),
+        transparent 70%
+    );
     transform: translate(-50%, -50%);
 }
 
@@ -135,14 +149,16 @@ button {
     justify-content: space-between;
     z-index: 100;
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     background: rgba(5, 5, 7, .45);
-    border-bottom: 1px solid rgba(255,255,255,.05);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 
 .logo {
     font-size: 21px;
     font-weight: 900;
     letter-spacing: -1px;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -151,13 +167,14 @@ button {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 38px;
 }
 
 nav a {
     font-size: 12px;
     color: #999;
-    transition: .3s;
+    transition: .3s ease;
 }
 
 nav a:hover {
@@ -166,10 +183,11 @@ nav a:hover {
 
 .nav-btn {
     padding: 12px 20px;
-    border: 1px solid rgba(255,255,255,.2);
+    border: 1px solid rgba(255, 255, 255, .2);
     border-radius: 100px;
     font-size: 11px;
-    transition: .3s;
+    transition: .3s ease;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -186,6 +204,7 @@ nav a:hover {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 8px;
 }
 
 .menu-btn span {
@@ -206,6 +225,7 @@ nav a:hover {
     align-items: center;
     justify-content: space-between;
     position: relative;
+    width: 100%;
 }
 
 .hero-content {
@@ -226,6 +246,7 @@ nav a:hover {
 .dot {
     width: 7px;
     height: 7px;
+    flex: 0 0 7px;
     border-radius: 50%;
     background: #9b6cff;
     box-shadow: 0 0 18px #9b6cff;
@@ -256,11 +277,13 @@ nav a:hover {
     display: flex;
     gap: 14px;
     margin-top: 35px;
+    flex-wrap: wrap;
 }
 
 .primary-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 25px;
     padding: 16px 22px;
     background: white;
@@ -268,12 +291,12 @@ nav a:hover {
     border-radius: 4px;
     font-size: 11px;
     font-weight: 700;
-    transition: .35s;
+    transition: .35s ease;
 }
 
 .primary-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255,255,255,.15);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, .15);
 }
 
 .primary-btn span {
@@ -285,7 +308,7 @@ nav a:hover {
     border: 1px solid #28282d;
     font-size: 11px;
     color: #aaa;
-    transition: .35s;
+    transition: .35s ease;
 }
 
 .secondary-btn:hover {
@@ -297,6 +320,7 @@ nav a:hover {
     display: flex;
     gap: 55px;
     margin-top: 65px;
+    flex-wrap: wrap;
 }
 
 .hero-stats div {
@@ -327,10 +351,15 @@ nav a:hover {
 
 .floating-card {
     position: absolute;
-    border: 1px solid rgba(255,255,255,.13);
-    background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
+    border: 1px solid rgba(255, 255, 255, .13);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, .10),
+        rgba(255, 255, 255, .025)
+    );
     backdrop-filter: blur(20px);
-    box-shadow: 0 50px 100px rgba(0,0,0,.5);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, .5);
 }
 
 .card-main {
@@ -357,8 +386,8 @@ nav a:hover {
     border-radius: 10px;
     display: grid;
     place-items: center;
-    background: rgba(155,108,255,.15);
-    border: 1px solid rgba(155,108,255,.3);
+    background: rgba(155, 108, 255, .15);
+    border: 1px solid rgba(155, 108, 255, .3);
     font-weight: 900;
 }
 
@@ -383,6 +412,7 @@ nav a:hover {
 .gradient-text {
     background: linear-gradient(90deg, #fff, #9b6cff);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -423,12 +453,13 @@ nav a:hover {
     position: absolute;
     border-radius: 50%;
     filter: blur(70px);
+    pointer-events: none;
 }
 
 .orb-one {
     width: 250px;
     height: 250px;
-    background: rgba(116,70,255,.18);
+    background: rgba(116, 70, 255, .18);
     right: 15%;
     top: 20%;
 }
@@ -436,15 +467,16 @@ nav a:hover {
 .orb-two {
     width: 150px;
     height: 150px;
-    background: rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, .08);
     left: 5%;
     bottom: 15%;
 }
 
 @keyframes floating {
-    0%,100% {
+    0%, 100% {
         transform: translateY(0) rotateX(0) rotateY(0);
     }
+
     50% {
         transform: translateY(-18px) rotateX(2deg) rotateY(-3deg);
     }
@@ -472,12 +504,13 @@ nav a:hover {
 /* ================= MARQUEE ================= */
 
 .marquee-section {
+    width: 100%;
     overflow: hidden;
     border-top: 1px solid #17171b;
     border-bottom: 1px solid #17171b;
     padding: 25px 0;
     transform: rotate(-1deg) scale(1.03);
-    background: rgba(255,255,255,.015);
+    background: rgba(255, 255, 255, .015);
 }
 
 .marquee {
@@ -492,6 +525,7 @@ nav a:hover {
     font-size: 30px;
     font-weight: 800;
     letter-spacing: -1px;
+    white-space: nowrap;
 }
 
 .marquee i {
@@ -511,6 +545,7 @@ nav a:hover {
 .section {
     padding: 150px 8vw;
     position: relative;
+    width: 100%;
 }
 
 .section-number {
@@ -593,7 +628,7 @@ nav a:hover {
 }
 
 
-/* 3D CUBE */
+/* ================= 3D CUBE ================= */
 
 .about-object {
     height: 420px;
@@ -614,8 +649,8 @@ nav a:hover {
     position: absolute;
     width: 180px;
     height: 180px;
-    border: 1px solid rgba(170,120,255,.4);
-    background: rgba(120,70,220,.07);
+    border: 1px solid rgba(170, 120, 255, .4);
+    background: rgba(120, 70, 220, .07);
     display: grid;
     place-items: center;
     font-size: 38px;
@@ -623,16 +658,38 @@ nav a:hover {
     backdrop-filter: blur(5px);
 }
 
-.front { transform: translateZ(90px); }
-.back { transform: rotateY(180deg) translateZ(90px); }
-.right { transform: rotateY(90deg) translateZ(90px); }
-.left { transform: rotateY(-90deg) translateZ(90px); }
-.top { transform: rotateX(90deg) translateZ(90px); }
-.bottom { transform: rotateX(-90deg) translateZ(90px); }
+.front {
+    transform: translateZ(90px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(90px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(90px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(90px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(90px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(90px);
+}
 
 @keyframes cubeRotate {
-    from { transform: rotateX(0) rotateY(0) rotateZ(0); }
-    to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+    from {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
 }
 
 
@@ -649,16 +706,16 @@ nav a:hover {
     min-height: 330px;
     padding: 30px;
     border: 1px solid #1b1b20;
-    background: rgba(255,255,255,.018);
+    background: rgba(255, 255, 255, .018);
     position: relative;
     overflow: hidden;
-    transition: .5s;
+    transition: .5s ease;
     transform-style: preserve-3d;
 }
 
 .course-card:hover {
     border-color: #58418b;
-    background: rgba(130,80,255,.055);
+    background: rgba(130, 80, 255, .055);
     transform: translateY(-10px);
 }
 
@@ -671,7 +728,7 @@ nav a:hover {
     background: #835cff;
     filter: blur(100px);
     opacity: 0;
-    transition: .5s;
+    transition: .5s ease;
 }
 
 .course-card:hover::before {
@@ -715,7 +772,7 @@ nav a:hover {
 }
 
 .featured {
-    border-color: rgba(142,97,255,.35);
+    border-color: rgba(142, 97, 255, .35);
 }
 
 
@@ -771,9 +828,9 @@ nav a:hover {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: rgba(130,80,255,.1);
-    border: 1px solid rgba(145,105,255,.4);
-    box-shadow: 0 0 80px rgba(130,80,255,.2);
+    background: rgba(130, 80, 255, .1);
+    border: 1px solid rgba(145, 105, 255, .4);
+    box-shadow: 0 0 80px rgba(130, 80, 255, .2);
     font-size: 35px;
     font-weight: 900;
     animation: pulse 3s ease-in-out infinite;
@@ -852,7 +909,7 @@ nav a:hover {
     background: linear-gradient(145deg, #101014, #08080a);
     padding: 20px;
     transform-style: preserve-3d;
-    transition: .4s;
+    transition: .4s ease;
 }
 
 .teacher-card:hover {
@@ -866,20 +923,24 @@ nav a:hover {
     place-items: center;
     overflow: hidden;
     background:
-        radial-gradient(circle at center, #302452, #0b0b0e 65%);
+        radial-gradient(
+            circle at center,
+            #302452,
+            #0b0b0e 65%
+        );
 }
 
 .teacher-placeholder {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    border: 1px solid rgba(180,150,255,.45);
+    border: 1px solid rgba(180, 150, 255, .45);
     display: grid;
     place-items: center;
     font-size: 45px;
     font-weight: 900;
-    background: rgba(255,255,255,.04);
-    box-shadow: 0 0 100px rgba(140,90,255,.2);
+    background: rgba(255, 255, 255, .04);
+    box-shadow: 0 0 100px rgba(140, 90, 255, .2);
     transform: translateZ(50px);
 }
 
@@ -888,7 +949,7 @@ nav a:hover {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 1px solid rgba(150,100,255,.1);
+    border: 1px solid rgba(150, 100, 255, .1);
     animation: teacherGlow 6s linear infinite;
 }
 
@@ -928,6 +989,30 @@ nav a:hover {
     font-size: 9px;
     letter-spacing: 1px;
     margin-top: 20px;
+}
+
+.teacher-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.teacher-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border: 1px solid #29242f;
+    color: #aaa;
+    font-size: 9px;
+    transition: .3s ease;
+}
+
+.teacher-contact a:hover {
+    color: white;
+    border-color: #7652bf;
+    background: rgba(130, 80, 255, .08);
 }
 
 
@@ -995,9 +1080,14 @@ nav a:hover {
     padding: 30px;
     border: 1px solid #33294a;
     background:
-        radial-gradient(circle at 80% 20%, rgba(130,80,255,.22), transparent 40%),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(130, 80, 255, .22),
+            transparent 40%
+        ),
         #0a090d;
     transform-style: preserve-3d;
+    position: relative;
 }
 
 .contact-card-top {
@@ -1025,12 +1115,15 @@ nav a:hover {
 
 .contact-card-bottom {
     position: absolute;
-    margin-top: 100px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
     display: flex;
     gap: 30px;
     color: #555;
     font-size: 7px;
     letter-spacing: 2px;
+    flex-wrap: wrap;
 }
 
 
@@ -1045,6 +1138,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .footer-logo {
@@ -1068,6 +1162,7 @@ footer {
     border-top: 1px solid #151519;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     color: #444;
     font-size: 8px;
     letter-spacing: 2px;
@@ -1079,459 +1174,4 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width: 900px) {
-
-    nav,
-    .nav-btn {
-        display: none;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    nav.open {
-        display: flex;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        width: 100%;
-        padding: 30px;
-        background: #08080b;
-        flex-direction: column;
-        gap: 25px;
-        border-bottom: 1px solid #222;
-    }
-
-    .hero {
-        flex-direction: column;
-        padding-top: 140px;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: clamp(60px, 16vw, 110px);
-        letter-spacing: -6px;
-    }
-
-    .hero-visual {
-        width: 100%;
-        height: 550px;
-        margin-top: 50px;
-    }
-
-    .about-grid,
-    .classes,
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .course-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .class-orbit {
-        margin-top: 50px;
-    }
-
-    .contact-wrapper {
-        gap: 50px;
-    }
-}
-
-
-@media(max-width: 600px) {
-
-    .navbar {
-        padding: 0 6vw;
-    }
-
-    .section {
-        padding: 110px 6vw;
-    }
-
-    .section-number {
-        top: 70px;
-        right: 6vw;
-    }
-
-    .hero {
-        padding: 130px 6vw 70px;
-        min-height: auto;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: clamp(48px, 17vw, 80px);
-        letter-spacing: -4px;
-        word-break: normal;
-    }
-
-    .hero-description {
-        font-size: 13px;
-        max-width: 100%;
-    }
-
-    .hero-buttons {
-        flex-wrap: wrap;
-    }
-
-    .hero-stats {
-        gap: 25px;
-        flex-wrap: wrap;
-        margin-top: 45px;
-    }
-
-    .hero-visual {
-        width: 100%;
-        height: 480px;
-        margin-top: 30px;
-    }
-
-    .card-main {
-        width: min(300px, 82vw);
-        height: 390px;
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .card-small {
-        right: 0;
-        bottom: 20px;
-        width: 120px;
-    }
-
-    .about-grid,
-    .classes,
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .about-grid {
-        margin-top: 60px;
-    }
-
-    .course-grid,
-    .teacher-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .course-grid,
-    .teacher-grid {
-        margin-top: 60px;
-    }
-
-    .course-card {
-        min-height: 300px;
-    }
-
-    .teacher-card {
-        min-height: auto;
-    }
-
-    .teacher-image {
-        height: 260px;
-    }
-
-    .teacher-info h3 {
-        font-size: 36px;
-    }
-
-    .class-orbit {
-        width: min(400px, 90vw);
-        height: min(400px, 90vw);
-        margin-top: 20px;
-    }
-
-    .ring-one {
-        width: 80%;
-        height: 80%;
-    }
-
-    .ring-two {
-        width: 58%;
-        height: 58%;
-    }
-
-    .orbit-center {
-        width: 105px;
-        height: 105px;
-    }
-
-    .item-10 {
-        top: 5%;
-        left: 10%;
-    }
-
-    .item-11 {
-        top: 18%;
-        right: 3%;
-    }
-
-    .item-12 {
-        bottom: 8%;
-        right: 10%;
-    }
-
-    .item-ca {
-        bottom: 18%;
-        left: 3%;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-card {
-        width: 100%;
-        height: 400px;
-    }
-
-    .contact-logo {
-        font-size: clamp(45px, 14vw, 65px);
-    }
-
-    .footer-top,
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .footer-bottom {
-        margin-top: 40px;
-    }
-
-    .quote-section {
-        min-height: 500px;
-        padding: 80px 6vw;
-    }
-
-    .quote-inner h2 {
-        font-size: clamp(42px, 13vw, 70px);
-        letter-spacing: -4px;
-    }
-
-    .marquee span {
-        font-size: 22px;
-    }
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    img,
-    video,
-    canvas {
-        max-width: 100%;
-    }
-}
-/* ================= MOBILE FIX ================= */
-
-@media (max-width: 600px) {
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden !important;
-    }
-
-    .hero {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 6vw;
-        padding-right: 6vw;
-        overflow: hidden;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-title {
-        width: 100%;
-        max-width: 100%;
-        font-size: clamp(48px, 16vw, 78px);
-        letter-spacing: -4px;
-        overflow-wrap: normal;
-    }
-
-    .hero-description {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* 3D CARD MOBILE */
-    .hero-visual {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        height: 470px;
-        overflow: visible;
-        position: relative;
-    }
-
-    .card-main {
-        width: min(300px, 82vw);
-        height: 390px;
-
-        left: 50%;
-        right: auto;
-        top: 30px;
-
-        animation: mobileFloating 5s ease-in-out infinite;
-    }
-
-    @keyframes mobileFloating {
-        0%, 100% {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        50% {
-            transform: translateX(-50%) translateY(-15px);
-        }
-    }
-
-    .card-small {
-        width: 120px;
-        right: 2%;
-        bottom: 15px;
-    }
-
-    .card-icon {
-        margin-top: 60px;
-        font-size: 55px;
-    }
-
-    .card-main h3 {
-        font-size: 28px;
-    }
-
-    /* BUTTONS */
-    .hero-buttons {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    /* STATS */
-    .hero-stats {
-        width: 100%;
-        gap: 25px;
-        flex-wrap: wrap;
-    }
-
-    /* ORBIT */
-    .class-orbit {
-        max-width: 90vw;
-        max-height: 90vw;
-    }
-
-    /* ALL IMAGES/CANVAS */
-    img,
-    video,
-    canvas {
-        max-width: 100%;
-    }
-}
-/* ================= MOBILE FIX ================= */
-
-@media (max-width: 600px) {
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    .hero {
-        width: 100%;
-        padding-left: 6vw;
-        padding-right: 6vw;
-        overflow: hidden;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-visual {
-        width: 100%;
-        max-width: 100%;
-        height: 550px;
-        overflow: hidden;
-    }
-
-    .card-main {
-        width: calc(100vw - 40px);
-        max-width: 330px;
-        right: auto;
-        left: 20px;
-        top: 50px;
-    }
-
-    .card-small {
-        right: 10px;
-        width: 135px;
-    }
-
-    .hero-title {
-        font-size: clamp(52px, 15vw, 80px);
-        letter-spacing: -4px;
-    }
-
-    .hero-description {
-        font-size: 13px;
-    }
-
-    .hero-stats {
-        gap: 25px;
-    }
-
-    .course-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .class-orbit {
-        width: min(100%, 500px);
-        height: 400px;
-    }
-
-    .teacher-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-card {
-        width: 100%;
-    }
-}
+    transition:
