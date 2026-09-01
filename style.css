@@ -1,6 +1,5 @@
 /* =====================================================
    SPCLASSES — PREMIUM 3D EDUCATION WEBSITE
-   COMPLETE RESPONSIVE CSS
    ===================================================== */
 
 * {
@@ -11,12 +10,9 @@
 
 html {
     scroll-behavior: smooth;
-    width: 100%;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
     background: #050507;
     color: #f5f5f5;
     font-family: "Inter", sans-serif;
@@ -30,11 +26,6 @@ a {
 
 button {
     font-family: inherit;
-}
-
-img {
-    max-width: 100%;
-    display: block;
 }
 
 
@@ -66,7 +57,6 @@ img {
 .loader-logo span {
     background: linear-gradient(135deg, #8c52ff, #d8b4fe);
     -webkit-background-clip: text;
-    background-clip: text;
     color: transparent;
 }
 
@@ -126,11 +116,7 @@ img {
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(
-        circle,
-        rgba(139, 92, 246, .13),
-        transparent 70%
-    );
+    background: radial-gradient(circle, rgba(139, 92, 246, .13), transparent 70%);
     transform: translate(-50%, -50%);
 }
 
@@ -149,16 +135,14 @@ img {
     justify-content: space-between;
     z-index: 100;
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     background: rgba(5, 5, 7, .45);
-    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
 .logo {
     font-size: 21px;
     font-weight: 900;
     letter-spacing: -1px;
-    white-space: nowrap;
 }
 
 .logo span {
@@ -167,14 +151,13 @@ img {
 
 nav {
     display: flex;
-    align-items: center;
     gap: 38px;
 }
 
 nav a {
     font-size: 12px;
     color: #999;
-    transition: .3s ease;
+    transition: .3s;
 }
 
 nav a:hover {
@@ -183,11 +166,10 @@ nav a:hover {
 
 .nav-btn {
     padding: 12px 20px;
-    border: 1px solid rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255,255,255,.2);
     border-radius: 100px;
     font-size: 11px;
-    transition: .3s ease;
-    white-space: nowrap;
+    transition: .3s;
 }
 
 .nav-btn:hover {
@@ -204,7 +186,6 @@ nav a:hover {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
 }
 
 .menu-btn span {
@@ -225,7 +206,6 @@ nav a:hover {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    width: 100%;
 }
 
 .hero-content {
@@ -246,7 +226,6 @@ nav a:hover {
 .dot {
     width: 7px;
     height: 7px;
-    flex: 0 0 7px;
     border-radius: 50%;
     background: #9b6cff;
     box-shadow: 0 0 18px #9b6cff;
@@ -277,13 +256,11 @@ nav a:hover {
     display: flex;
     gap: 14px;
     margin-top: 35px;
-    flex-wrap: wrap;
 }
 
 .primary-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 25px;
     padding: 16px 22px;
     background: white;
@@ -291,12 +268,12 @@ nav a:hover {
     border-radius: 4px;
     font-size: 11px;
     font-weight: 700;
-    transition: .35s ease;
+    transition: .35s;
 }
 
 .primary-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 255, 255, .15);
+    box-shadow: 0 15px 40px rgba(255,255,255,.15);
 }
 
 .primary-btn span {
@@ -308,7 +285,7 @@ nav a:hover {
     border: 1px solid #28282d;
     font-size: 11px;
     color: #aaa;
-    transition: .35s ease;
+    transition: .35s;
 }
 
 .secondary-btn:hover {
@@ -320,7 +297,6 @@ nav a:hover {
     display: flex;
     gap: 55px;
     margin-top: 65px;
-    flex-wrap: wrap;
 }
 
 .hero-stats div {
@@ -351,15 +327,10 @@ nav a:hover {
 
 .floating-card {
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, .13);
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, .10),
-        rgba(255, 255, 255, .025)
-    );
+    border: 1px solid rgba(255,255,255,.13);
+    background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 50px 100px rgba(0, 0, 0, .5);
+    box-shadow: 0 50px 100px rgba(0,0,0,.5);
 }
 
 .card-main {
@@ -386,8 +357,8 @@ nav a:hover {
     border-radius: 10px;
     display: grid;
     place-items: center;
-    background: rgba(155, 108, 255, .15);
-    border: 1px solid rgba(155, 108, 255, .3);
+    background: rgba(155,108,255,.15);
+    border: 1px solid rgba(155,108,255,.3);
     font-weight: 900;
 }
 
@@ -412,7 +383,6 @@ nav a:hover {
 .gradient-text {
     background: linear-gradient(90deg, #fff, #9b6cff);
     -webkit-background-clip: text;
-    background-clip: text;
     color: transparent;
 }
 
@@ -453,13 +423,12 @@ nav a:hover {
     position: absolute;
     border-radius: 50%;
     filter: blur(70px);
-    pointer-events: none;
 }
 
 .orb-one {
     width: 250px;
     height: 250px;
-    background: rgba(116, 70, 255, .18);
+    background: rgba(116,70,255,.18);
     right: 15%;
     top: 20%;
 }
@@ -467,16 +436,15 @@ nav a:hover {
 .orb-two {
     width: 150px;
     height: 150px;
-    background: rgba(255, 255, 255, .08);
+    background: rgba(255,255,255,.08);
     left: 5%;
     bottom: 15%;
 }
 
 @keyframes floating {
-    0%, 100% {
+    0%,100% {
         transform: translateY(0) rotateX(0) rotateY(0);
     }
-
     50% {
         transform: translateY(-18px) rotateX(2deg) rotateY(-3deg);
     }
@@ -504,13 +472,12 @@ nav a:hover {
 /* ================= MARQUEE ================= */
 
 .marquee-section {
-    width: 100%;
     overflow: hidden;
     border-top: 1px solid #17171b;
     border-bottom: 1px solid #17171b;
     padding: 25px 0;
     transform: rotate(-1deg) scale(1.03);
-    background: rgba(255, 255, 255, .015);
+    background: rgba(255,255,255,.015);
 }
 
 .marquee {
@@ -525,7 +492,6 @@ nav a:hover {
     font-size: 30px;
     font-weight: 800;
     letter-spacing: -1px;
-    white-space: nowrap;
 }
 
 .marquee i {
@@ -545,7 +511,6 @@ nav a:hover {
 .section {
     padding: 150px 8vw;
     position: relative;
-    width: 100%;
 }
 
 .section-number {
@@ -628,7 +593,7 @@ nav a:hover {
 }
 
 
-/* ================= 3D CUBE ================= */
+/* 3D CUBE */
 
 .about-object {
     height: 420px;
@@ -649,8 +614,8 @@ nav a:hover {
     position: absolute;
     width: 180px;
     height: 180px;
-    border: 1px solid rgba(170, 120, 255, .4);
-    background: rgba(120, 70, 220, .07);
+    border: 1px solid rgba(170,120,255,.4);
+    background: rgba(120,70,220,.07);
     display: grid;
     place-items: center;
     font-size: 38px;
@@ -658,38 +623,16 @@ nav a:hover {
     backdrop-filter: blur(5px);
 }
 
-.front {
-    transform: translateZ(90px);
-}
-
-.back {
-    transform: rotateY(180deg) translateZ(90px);
-}
-
-.right {
-    transform: rotateY(90deg) translateZ(90px);
-}
-
-.left {
-    transform: rotateY(-90deg) translateZ(90px);
-}
-
-.top {
-    transform: rotateX(90deg) translateZ(90px);
-}
-
-.bottom {
-    transform: rotateX(-90deg) translateZ(90px);
-}
+.front { transform: translateZ(90px); }
+.back { transform: rotateY(180deg) translateZ(90px); }
+.right { transform: rotateY(90deg) translateZ(90px); }
+.left { transform: rotateY(-90deg) translateZ(90px); }
+.top { transform: rotateX(90deg) translateZ(90px); }
+.bottom { transform: rotateX(-90deg) translateZ(90px); }
 
 @keyframes cubeRotate {
-    from {
-        transform: rotateX(0) rotateY(0) rotateZ(0);
-    }
-
-    to {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-    }
+    from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+    to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 
@@ -706,16 +649,16 @@ nav a:hover {
     min-height: 330px;
     padding: 30px;
     border: 1px solid #1b1b20;
-    background: rgba(255, 255, 255, .018);
+    background: rgba(255,255,255,.018);
     position: relative;
     overflow: hidden;
-    transition: .5s ease;
+    transition: .5s;
     transform-style: preserve-3d;
 }
 
 .course-card:hover {
     border-color: #58418b;
-    background: rgba(130, 80, 255, .055);
+    background: rgba(130,80,255,.055);
     transform: translateY(-10px);
 }
 
@@ -728,7 +671,7 @@ nav a:hover {
     background: #835cff;
     filter: blur(100px);
     opacity: 0;
-    transition: .5s ease;
+    transition: .5s;
 }
 
 .course-card:hover::before {
@@ -772,7 +715,7 @@ nav a:hover {
 }
 
 .featured {
-    border-color: rgba(142, 97, 255, .35);
+    border-color: rgba(142,97,255,.35);
 }
 
 
@@ -828,9 +771,9 @@ nav a:hover {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: rgba(130, 80, 255, .1);
-    border: 1px solid rgba(145, 105, 255, .4);
-    box-shadow: 0 0 80px rgba(130, 80, 255, .2);
+    background: rgba(130,80,255,.1);
+    border: 1px solid rgba(145,105,255,.4);
+    box-shadow: 0 0 80px rgba(130,80,255,.2);
     font-size: 35px;
     font-weight: 900;
     animation: pulse 3s ease-in-out infinite;
@@ -909,7 +852,7 @@ nav a:hover {
     background: linear-gradient(145deg, #101014, #08080a);
     padding: 20px;
     transform-style: preserve-3d;
-    transition: .4s ease;
+    transition: .4s;
 }
 
 .teacher-card:hover {
@@ -923,24 +866,20 @@ nav a:hover {
     place-items: center;
     overflow: hidden;
     background:
-        radial-gradient(
-            circle at center,
-            #302452,
-            #0b0b0e 65%
-        );
+        radial-gradient(circle at center, #302452, #0b0b0e 65%);
 }
 
 .teacher-placeholder {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    border: 1px solid rgba(180, 150, 255, .45);
+    border: 1px solid rgba(180,150,255,.45);
     display: grid;
     place-items: center;
     font-size: 45px;
     font-weight: 900;
-    background: rgba(255, 255, 255, .04);
-    box-shadow: 0 0 100px rgba(140, 90, 255, .2);
+    background: rgba(255,255,255,.04);
+    box-shadow: 0 0 100px rgba(140,90,255,.2);
     transform: translateZ(50px);
 }
 
@@ -949,7 +888,7 @@ nav a:hover {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 1px solid rgba(150, 100, 255, .1);
+    border: 1px solid rgba(150,100,255,.1);
     animation: teacherGlow 6s linear infinite;
 }
 
@@ -989,30 +928,6 @@ nav a:hover {
     font-size: 9px;
     letter-spacing: 1px;
     margin-top: 20px;
-}
-
-.teacher-contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 22px;
-}
-
-.teacher-contact a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 12px;
-    border: 1px solid #29242f;
-    color: #aaa;
-    font-size: 9px;
-    transition: .3s ease;
-}
-
-.teacher-contact a:hover {
-    color: white;
-    border-color: #7652bf;
-    background: rgba(130, 80, 255, .08);
 }
 
 
@@ -1080,14 +995,9 @@ nav a:hover {
     padding: 30px;
     border: 1px solid #33294a;
     background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(130, 80, 255, .22),
-            transparent 40%
-        ),
+        radial-gradient(circle at 80% 20%, rgba(130,80,255,.22), transparent 40%),
         #0a090d;
     transform-style: preserve-3d;
-    position: relative;
 }
 
 .contact-card-top {
@@ -1115,15 +1025,12 @@ nav a:hover {
 
 .contact-card-bottom {
     position: absolute;
-    left: 30px;
-    right: 30px;
-    bottom: 30px;
+    margin-top: 100px;
     display: flex;
     gap: 30px;
     color: #555;
     font-size: 7px;
     letter-spacing: 2px;
-    flex-wrap: wrap;
 }
 
 
@@ -1138,7 +1045,6 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
 }
 
 .footer-logo {
@@ -1162,7 +1068,6 @@ footer {
     border-top: 1px solid #151519;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
     color: #444;
     font-size: 8px;
     letter-spacing: 2px;
@@ -1174,4 +1079,283 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(50px);
-    transition:
+    transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+
+    nav,
+    .nav-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav.open {
+        display: flex;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        background: #08080b;
+        flex-direction: column;
+        gap: 25px;
+        border-bottom: 1px solid #222;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding-top: 140px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: clamp(60px, 16vw, 110px);
+        letter-spacing: -6px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        height: 550px;
+        margin-top: 50px;
+    }
+
+    .about-grid,
+    .classes,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .class-orbit {
+        margin-top: 50px;
+    }
+
+    .contact-wrapper {
+        gap: 50px;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .navbar {
+        padding: 0 6vw;
+    }
+
+    .section {
+        padding: 110px 6vw;
+    }
+
+    .section-number {
+        top: 70px;
+        right: 6vw;
+    }
+
+    .hero {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-stats {
+        gap: 30px;
+    }
+
+    .hero-visual {
+        height: 480px;
+    }
+
+    .card-main {
+        width: 280px;
+        height: 380px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .card-small {
+        right: 0;
+    }
+
+    .course-grid,
+    .teacher-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .class-orbit {
+        width: 330px;
+        height: 330px;
+    }
+
+    .ring-one {
+        width: 280px;
+        height: 280px;
+    }
+
+    .ring-two {
+        width: 200px;
+        height: 200px;
+    }
+
+    .orbit-center {
+        width: 90px;
+        height: 90px;
+        font-size: 25px;
+    }
+
+    .item-10 {
+        left: 20px;
+    }
+
+    .item-11 {
+        right: 0;
+    }
+
+    .item-12 {
+        right: 15px;
+        bottom: 20px;
+    }
+
+    .item-ca {
+        left: 0;
+        bottom: 60px;
+    }
+
+    .teacher-image {
+        height: 250px;
+    }
+
+    .teacher-info h3 {
+        font-size: 38px;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .contact-card {
+        height: 400px;
+    }
+}
+
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+.teacher-contact {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.teacher-contact a {
+    padding: 10px 14px;
+    border: 1px solid #29252f;
+    background: rgba(255,255,255,.03);
+    color: #aaa;
+    font-size: 9px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.teacher-contact a:hover {
+    color: white;
+    border-color: #8f68e6;
+    transform: translateY(-3px);
+}
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container,
+    .hero,
+    .section,
+    .about,
+    .teachers,
+    .courses {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+    }
+
+    .nav {
+        padding: 15px 20px;
+    }
+
+    .hero {
+        padding: 70px 20px 50px;
+    }
+
+    .teachers,
+    .courses {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-card,
+    .course-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    img,
+    video,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
