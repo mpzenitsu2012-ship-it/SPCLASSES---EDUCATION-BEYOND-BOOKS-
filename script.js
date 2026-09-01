@@ -1,434 +1,494 @@
 /* =====================================================
-   SPCLASSES — INTERACTIVE 3D JAVASCRIPT
+   SPCLASSES — INTERACTIVE JAVASCRIPT
    ===================================================== */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* ================= LOADER ================= */
+    /* ================= LOADER ================= */
 
-window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
 
-});
-
-
-/* ================= MOBILE MENU ================= */
-
-const menuBtn = document.getElementById("menu-btn");
-const navMenu = document.getElementById("nav-menu");
-
-menuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
-});
+    if (loader) {
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loader.classList.add("hide");
+            }, 900);
+        });
+    }
 
 
-document.querySelectorAll("nav a").forEach(link => {
+    /* ================= MOBILE MENU ================= */
 
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-    });
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
 
-});
+    if (menuBtn && navMenu) {
+
+        menuBtn.addEventListener("click", () => {
+            navMenu.classList.toggle("open");
+        });
+
+        navMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("open");
+            });
+        });
+
+    }
 
 
-/* ================= CURSOR GLOW ================= */
+    /* ================= CURSOR GLOW ================= */
 
-const cursorGlow = document.querySelector(".cursor-glow");
+    const cursorGlow = document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove", (e) => {
+    if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
 
-    cursorGlow.style.left = `${e.clientX}px`;
-    cursorGlow.style.top = `${e.clientY}px`;
+        document.addEventListener("mousemove", (event) => {
 
-});
-
-
-/* ================= SCROLL REVEAL ================= */
-
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver(
-
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-            }
+            cursorGlow.style.left = `${event.clientX}px`;
+            cursorGlow.style.top = `${event.clientY}px`;
 
         });
 
-    },
-
-    {
-        threshold: 0.12
     }
 
-);
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
+    /* ================= SCROLL REVEAL ================= */
 
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-/* ================= 3D TILT ================= */
+    if ("IntersectionObserver" in window) {
 
-const tiltCards = document.querySelectorAll(".tilt");
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
 
-tiltCards.forEach(card => {
+                    entries.forEach(entry => {
 
-    card.addEventListener("mousemove", (e) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                            revealObserver.unobserve(entry.target);
+                        }
 
-        const rect = card.getBoundingClientRect();
+                    });
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
 
-        const rotateX =
-            ((y - centerY) / centerY) * -6;
+    } else {
 
-        const rotateY =
-            ((x - centerX) / centerX) * 6;
-
-        card.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
-
-    });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
-
-    });
-
-});
-
-
-/* ================= THREE.JS ================= */
-
-const canvas = document.getElementById("three-canvas");
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-    60,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-);
-
-camera.position.z = 5;
-
-
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    alpha: true,
-    antialias: true
-});
-
-renderer.setPixelRatio(
-    Math.min(window.devicePixelRatio, 2)
-);
-
-renderer.setSize(
-    window.innerWidth,
-    window.innerHeight
-);
-
-
-/* ================= PARTICLE FIELD ================= */
-
-const particleGeometry =
-    new THREE.BufferGeometry();
-
-const particleCount = 1800;
-
-const positions =
-    new Float32Array(particleCount * 3);
-
-for (let i = 0; i < particleCount * 3; i++) {
-
-    positions[i] =
-        (Math.random() - 0.5) * 16;
-
-}
-
-particleGeometry.setAttribute(
-    "position",
-    new THREE.BufferAttribute(
-        positions,
-        3
-    )
-);
-
-
-const particleMaterial =
-    new THREE.PointsMaterial({
-        color: 0x8f6cff,
-        size: 0.018,
-        transparent: true,
-        opacity: 0.65
-    });
-
-
-const particles =
-    new THREE.Points(
-        particleGeometry,
-        particleMaterial
-    );
-
-scene.add(particles);
-
-
-/* ================= WIREFRAME SPHERE ================= */
-
-const sphereGeometry =
-    new THREE.IcosahedronGeometry(
-        1.5,
-        2
-    );
-
-const sphereMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0x7549d8,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.07
-    });
-
-const sphere =
-    new THREE.Mesh(
-        sphereGeometry,
-        sphereMaterial
-    );
-
-sphere.position.set(
-    2.8,
-    0.2,
-    -1
-);
-
-scene.add(sphere);
-
-
-/* ================= TORUS ================= */
-
-const torusGeometry =
-    new THREE.TorusGeometry(
-        2.3,
-        0.012,
-        16,
-        120
-    );
-
-const torusMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0x9d7aff,
-        transparent: true,
-        opacity: 0.16
-    });
-
-const torus =
-    new THREE.Mesh(
-        torusGeometry,
-        torusMaterial
-    );
-
-torus.rotation.x = 1.1;
-
-scene.add(torus);
-
-
-/* ================= MOUSE PARALLAX ================= */
-
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener(
-    "mousemove",
-    (event) => {
-
-        mouseX =
-            (event.clientX /
-                window.innerWidth) *
-            2 - 1;
-
-        mouseY =
-            (event.clientY /
-                window.innerHeight) *
-            2 - 1;
+        revealElements.forEach(element => {
+            element.classList.add("active");
+        });
 
     }
-);
 
 
-/* ================= ANIMATION LOOP ================= */
+    /* ================= 3D TILT ================= */
 
-const clock = new THREE.Clock();
+    const tiltCards =
+        document.querySelectorAll(".tilt");
 
-function animate() {
+    if (window.matchMedia("(pointer: fine)").matches) {
 
-    requestAnimationFrame(animate);
+        tiltCards.forEach(card => {
 
-    const time = clock.getElapsedTime();
+            card.addEventListener("mousemove", (event) => {
 
+                const rect =
+                    card.getBoundingClientRect();
 
-    /* particles */
+                const x =
+                    event.clientX - rect.left;
 
-    particles.rotation.y =
-        time * 0.015;
+                const y =
+                    event.clientY - rect.top;
 
-    particles.rotation.x =
-        mouseY * 0.04;
+                const centerX =
+                    rect.width / 2;
 
+                const centerY =
+                    rect.height / 2;
 
-    /* sphere */
+                const rotateX =
+                    ((y - centerY) / centerY) * -5;
 
-    sphere.rotation.x =
-        time * 0.12;
+                const rotateY =
+                    ((x - centerX) / centerX) * 5;
 
-    sphere.rotation.y =
-        time * 0.16;
+                card.style.transform =
+                    `perspective(1000px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-5px)`;
 
-
-    sphere.position.x =
-        2.8 + mouseX * 0.3;
-
-    sphere.position.y =
-        0.2 - mouseY * 0.25;
-
-
-    /* torus */
-
-    torus.rotation.z =
-        time * 0.08;
-
-    torus.rotation.y =
-        time * 0.05;
+            });
 
 
-    /* camera */
+            card.addEventListener("mouseleave", () => {
 
-    camera.position.x +=
-        (mouseX * 0.18 -
-         camera.position.x) * 0.03;
+                card.style.transform =
+                    "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
 
-    camera.position.y +=
-        (-mouseY * 0.12 -
-         camera.position.y) * 0.03;
+            });
 
-    camera.lookAt(
-        scene.position
-    );
+        });
+
+    }
 
 
-    renderer.render(
-        scene,
-        camera
-    );
+    /* ================= THREE.JS ================= */
 
-}
+    const canvas =
+        document.getElementById("three-canvas");
 
-animate();
+    if (
+        canvas &&
+        typeof THREE !== "undefined"
+    ) {
+
+        const scene =
+            new THREE.Scene();
+
+        const camera =
+            new THREE.PerspectiveCamera(
+                60,
+                window.innerWidth /
+                window.innerHeight,
+                0.1,
+                1000
+            );
+
+        camera.position.z = 5;
 
 
-/* ================= RESIZE ================= */
+        const renderer =
+            new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true,
+                antialias: true
+            });
 
-window.addEventListener(
-    "resize",
-    () => {
-
-        camera.aspect =
-            window.innerWidth /
-            window.innerHeight;
-
-        camera.updateProjectionMatrix();
+        renderer.setPixelRatio(
+            Math.min(window.devicePixelRatio, 2)
+        );
 
         renderer.setSize(
             window.innerWidth,
             window.innerHeight
         );
 
+
+        /* ================= PARTICLES ================= */
+
+        const particleGeometry =
+            new THREE.BufferGeometry();
+
+        const particleCount = 1200;
+
+        const positions =
+            new Float32Array(
+                particleCount * 3
+            );
+
+        for (
+            let i = 0;
+            i < particleCount * 3;
+            i++
+        ) {
+
+            positions[i] =
+                (Math.random() - 0.5) * 16;
+
+        }
+
+        particleGeometry.setAttribute(
+            "position",
+            new THREE.BufferAttribute(
+                positions,
+                3
+            )
+        );
+
+
+        const particleMaterial =
+            new THREE.PointsMaterial({
+                color: 0x8f6cff,
+                size: 0.018,
+                transparent: true,
+                opacity: 0.55
+            });
+
+
+        const particles =
+            new THREE.Points(
+                particleGeometry,
+                particleMaterial
+            );
+
+        scene.add(particles);
+
+
+        /* ================= WIREFRAME SPHERE ================= */
+
+        const sphereGeometry =
+            new THREE.IcosahedronGeometry(
+                1.5,
+                2
+            );
+
+        const sphereMaterial =
+            new THREE.MeshBasicMaterial({
+                color: 0x7549d8,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.07
+            });
+
+        const sphere =
+            new THREE.Mesh(
+                sphereGeometry,
+                sphereMaterial
+            );
+
+        sphere.position.set(
+            2.8,
+            0.2,
+            -1
+        );
+
+        scene.add(sphere);
+
+
+        /* ================= TORUS ================= */
+
+        const torusGeometry =
+            new THREE.TorusGeometry(
+                2.3,
+                0.012,
+                16,
+                120
+            );
+
+        const torusMaterial =
+            new THREE.MeshBasicMaterial({
+                color: 0x9d7aff,
+                transparent: true,
+                opacity: 0.14
+            });
+
+        const torus =
+            new THREE.Mesh(
+                torusGeometry,
+                torusMaterial
+            );
+
+        torus.rotation.x = 1.1;
+
+        scene.add(torus);
+
+
+        /* ================= MOUSE PARALLAX ================= */
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        if (window.matchMedia("(pointer: fine)").matches) {
+
+            document.addEventListener(
+                "mousemove",
+                (event) => {
+
+                    mouseX =
+                        (event.clientX /
+                            window.innerWidth) *
+                        2 - 1;
+
+                    mouseY =
+                        (event.clientY /
+                            window.innerHeight) *
+                        2 - 1;
+
+                }
+            );
+
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        const clock =
+            new THREE.Clock();
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            const time =
+                clock.getElapsedTime();
+
+
+            particles.rotation.y =
+                time * 0.012;
+
+            particles.rotation.x =
+                mouseY * 0.03;
+
+
+            sphere.rotation.x =
+                time * 0.10;
+
+            sphere.rotation.y =
+                time * 0.14;
+
+
+            sphere.position.x =
+                2.8 + mouseX * 0.25;
+
+            sphere.position.y =
+                0.2 - mouseY * 0.20;
+
+
+            torus.rotation.z =
+                time * 0.06;
+
+            torus.rotation.y =
+                time * 0.04;
+
+
+            camera.position.x +=
+                (mouseX * 0.15 -
+                 camera.position.x) * 0.025;
+
+            camera.position.y +=
+                (-mouseY * 0.10 -
+                 camera.position.y) * 0.025;
+
+
+            camera.lookAt(
+                scene.position
+            );
+
+
+            renderer.render(
+                scene,
+                camera
+            );
+
+        }
+
+        animate();
+
+
+        /* ================= RESIZE ================= */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                camera.aspect =
+                    window.innerWidth /
+                    window.innerHeight;
+
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(
+                    window.innerWidth,
+                    window.innerHeight
+                );
+
+                renderer.setPixelRatio(
+                    Math.min(
+                        window.devicePixelRatio,
+                        2
+                    )
+                );
+
+            }
+        );
+
+
+        /* ================= SCROLL PARALLAX ================= */
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                const scroll =
+                    window.scrollY;
+
+                sphere.position.y =
+                    0.2 + scroll * 0.00025;
+
+                torus.position.y =
+                    -scroll * 0.00012;
+
+            },
+            { passive: true }
+        );
+
     }
-);
 
 
-/* ================= SCROLL PARALLAX ================= */
+    /* ================= COURSE CARD DELAY ================= */
 
-window.addEventListener(
-    "scroll",
-    () => {
+    const courseCards =
+        document.querySelectorAll(
+            ".course-card"
+        );
 
-        const scroll =
-            window.scrollY;
+    courseCards.forEach(
+        (card, index) => {
 
-        sphere.position.y =
-            0.2 + scroll * 0.0004;
+            card.style.transitionDelay =
+                `${index * 50}ms`;
 
-        torus.position.y =
-            -scroll * 0.0002;
-
-    },
-    { passive: true }
-);
-
-
-/* ================= COURSE HOVER SOUNDLESS FX ================= */
-
-const courseCards =
-    document.querySelectorAll(
-        ".course-card"
+        }
     );
 
-courseCards.forEach((card, index) => {
 
-    card.style.transitionDelay =
-        `${index * 50}ms`;
+    /* ================= ACTIVE NAV ================= */
 
-});
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            "nav a"
+        );
 
 
-/* ================= ACTIVE NAV ================= */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-const navLinks =
-    document.querySelectorAll(
-        "nav a"
-    );
-
-window.addEventListener(
-    "scroll",
-    () => {
+    function updateActiveNav() {
 
         let current = "";
 
         sections.forEach(section => {
 
             const sectionTop =
-                section.offsetTop - 200;
+                section.offsetTop - 220;
 
             if (
                 window.scrollY >=
                 sectionTop
             ) {
+
                 current =
-                    section.getAttribute(
-                        "id"
-                    );
+                    section.getAttribute("id");
+
             }
 
         });
+
 
         navLinks.forEach(link => {
 
@@ -438,95 +498,42 @@ window.addEventListener(
                 link.getAttribute("href") ===
                 `#${current}`
             ) {
+
                 link.style.color = "white";
+
             }
 
         });
 
-    },
-    { passive: true }
-);
-/* ===== FINAL MOBILE POSITION FIX ===== */
-
-@media (max-width: 600px) {
-
-    .hero {
-        overflow: hidden !important;
-        width: 100% !important;
-        max-width: 100vw !important;
     }
 
-    .hero-content {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
 
-    .hero-title {
-        width: 100% !important;
-        font-size: clamp(48px, 16vw, 78px) !important;
-        letter-spacing: -4px !important;
-    }
+    window.addEventListener(
+        "scroll",
+        updateActiveNav,
+        { passive: true }
+    );
 
-    .hero-visual {
-        width: 100% !important;
-        max-width: 100vw !important;
-        height: 470px !important;
-        overflow: visible !important;
-    }
+    updateActiveNav();
 
-    /* MAIN 3D CARD */
-    .card-main {
-        width: 82vw !important;
-        max-width: 300px !important;
-        height: 390px !important;
 
-        left: 50% !important;
-        right: auto !important;
+    /* ================= SMOOTH ANCHOR CLOSE ================= */
 
-        /* horizontal centering without relying on animation */
-        margin-left: -41vw !important;
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(link => {
 
-        top: 30px !important;
+        link.addEventListener(
+            "click",
+            () => {
 
-        animation: mobileCardFloat 5s ease-in-out infinite !important;
-    }
+                if (navMenu) {
+                    navMenu.classList.remove("open");
+                }
 
-    @keyframes mobileCardFloat {
-        0%, 100% {
-            transform: translateY(0) !important;
-        }
+            }
+        );
 
-        50% {
-            transform: translateY(-15px) !important;
-        }
-    }
+    });
 
-    /* SMALL CARD */
-    .card-small {
-        width: 120px !important;
-        right: 2vw !important;
-        bottom: 15px !important;
-    }
-
-    .hero-buttons {
-        max-width: 100% !important;
-        flex-wrap: wrap !important;
-    }
-
-    .hero-stats {
-        max-width: 100% !important;
-        flex-wrap: wrap !important;
-    }
-
-    /* PREVENT HORIZONTAL PAGE MOVEMENT */
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-    }
-}
-/* FIX LOADER */
-#loader {
-    display: none !important;
-}
+});
